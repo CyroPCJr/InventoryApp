@@ -139,7 +139,7 @@ fun ItemInputForm(
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_medium))
     ) {
-        var focusRequester = remember {
+        val focusRequester = remember {
             FocusRequester()
         }
         val focusManager = LocalFocusManager.current
