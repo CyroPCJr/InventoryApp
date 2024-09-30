@@ -63,7 +63,7 @@ class ItemEntryViewModel(private val itemsRepository: ItemsRepository) : ViewMod
  */
 data class ItemUiState(
     val itemDetails: ItemDetails = ItemDetails(),
-    val isEntryValid: Boolean = false
+    val isEntryValid: Boolean = false,
 )
 
 data class ItemDetails(
