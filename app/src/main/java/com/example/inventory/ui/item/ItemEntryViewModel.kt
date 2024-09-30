@@ -20,8 +20,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.inventory.data.Item
 import com.example.inventory.data.ItemsRepository
+import kotlinx.coroutines.launch
 import java.text.NumberFormat
 
 /**
@@ -34,6 +36,12 @@ class ItemEntryViewModel(private val itemsRepository: ItemsRepository) : ViewMod
      */
     var itemUiState by mutableStateOf(ItemUiState())
         private set
+
+    init {
+        viewModelScope.launch {
+
+        }
+    }
 
     /**
      * Updates the [itemUiState] with the value provided in the argument. This method also triggers
