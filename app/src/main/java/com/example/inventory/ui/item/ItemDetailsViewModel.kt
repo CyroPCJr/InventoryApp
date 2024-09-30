@@ -40,7 +40,7 @@ class ItemDetailsViewModel(
     val uiState: StateFlow<ItemDetailsUiState> = itemsRepository.getItemStream(itemId)
         .filterNotNull()
         .map {
-            ItemDetailsUiState(outOfStock =  it.quantity < 1,itemDetails = it.toItemDetails())
+            ItemDetailsUiState(outOfStock = it.quantity < 1, itemDetails = it.toItemDetails())
         }.stateIn(
             scope = viewModelScope,
             started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS),
@@ -53,9 +53,13 @@ class ItemDetailsViewModel(
             if (currentItem.quantity > 0) {
                 itemsRepository.updateItem(currentItem.copy(quantity = currentItem.quantity - 1))
             }
-
         }
     }
+
+    suspend fun deleteItem() {
+        itemsRepository.deleteItem(uiState.value.itemDetails.toItem())
+    }
+
 
     companion object {
         private const val TIMEOUT_MILLIS = 5_000L

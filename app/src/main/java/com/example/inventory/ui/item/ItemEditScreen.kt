@@ -48,7 +48,7 @@ fun ItemEditScreen(
     navigateBack: () -> Unit,
     onNavigateUp: () -> Unit,
     modifier: Modifier = Modifier,
-    viewModel: ItemEditViewModel = viewModel(factory = AppViewModelProvider.Factory)
+    viewModel: ItemEditViewModel = viewModel(factory = AppViewModelProvider.Factory),
 ) {
     Scaffold(
         topBar = {
