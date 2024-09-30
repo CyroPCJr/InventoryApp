@@ -61,7 +61,7 @@ fun InventoryNavHost(
         }
         composable(
             route = ItemDetailsDestination.routeWithArgs,
-            arguments = listOf(navArgument(ItemDetailsDestination.itemIdArg) {
+            arguments = listOf(navArgument(ItemDetailsDestination.ITEM_ID_ARG) {
                 type = NavType.IntType
             })
         ) {
@@ -72,7 +72,7 @@ fun InventoryNavHost(
         }
         composable(
             route = ItemEditDestination.routeWithArgs,
-            arguments = listOf(navArgument(ItemEditDestination.itemIdArg) {
+            arguments = listOf(navArgument(ItemEditDestination.ITEM_ID_ARG) {
                 type = NavType.IntType
             })
         ) {

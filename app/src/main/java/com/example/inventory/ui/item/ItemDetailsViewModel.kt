@@ -35,7 +35,7 @@ class ItemDetailsViewModel(
     private val itemsRepository: ItemsRepository,
 ) : ViewModel() {
 
-    private val itemId: Int = checkNotNull(savedStateHandle[ItemDetailsDestination.itemIdArg])
+    private val itemId: Int = checkNotNull(savedStateHandle[ItemDetailsDestination.ITEM_ID_ARG])
 
     val uiState: StateFlow<ItemDetailsUiState> = itemsRepository.getItemStream(itemId)
         .filterNotNull()
@@ -59,7 +59,6 @@ class ItemDetailsViewModel(
     suspend fun deleteItem() {
         itemsRepository.deleteItem(uiState.value.itemDetails.toItem())
     }
-
 
     companion object {
         private const val TIMEOUT_MILLIS = 5_000L

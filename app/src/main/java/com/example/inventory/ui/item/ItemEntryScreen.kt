@@ -143,6 +143,7 @@ fun ItemInputForm(
             FocusRequester()
         }
         val focusManager = LocalFocusManager.current
+
         OutlinedTextField(
 
             value = itemDetails.name,
